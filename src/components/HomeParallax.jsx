@@ -137,7 +137,14 @@ const HomeParallax = ({ onBack, onNext, isActive = true }) => {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#fefcf3] text-slate-900 h-screen-safe"
+      className="relative w-full h-full overflow-hidden bg-[#fefcf3] text-slate-900"
+      style={{
+        width: '100%',
+        height: '100%',
+        maxWidth: '100%',
+        maxHeight: '100%',
+        overflow: 'hidden',
+      }}
       onWheel={handleWheel}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
@@ -178,36 +185,38 @@ const HomeParallax = ({ onBack, onNext, isActive = true }) => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" aria-hidden="true" />
 
-      <div className="relative z-30 flex h-full w-full items-center justify-center px-4 pt-20 pb-20 sm:px-6 sm:pt-24 sm:pb-24 md:py-32">
-        <div className="w-full max-w-3xl space-y-3 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-5 sm:rounded-3xl sm:p-6 md:p-8">
-          <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl lg:text-7xl">
-            Welcome to the Renaissance
-          </h1>
-          <p className="text-base font-medium text-white/90 sm:text-lg md:text-xl">
-            Because when teaching is fun, learning becomes unforgettable.
-          </p>
-          <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
-            You didn’t choose to teach for routine. You chose it to inspire, connect, and share your craft with passion.
-            At Renaissance, we believe teaching should spark joy — not burnout.
-          </p>
-          <p className="text-xs leading-relaxed text-white/80 sm:text-sm md:text-base">
-            We're building a new kind of platform where instructors feel energized, creative, and fully supported to do
-            what they love: create meaningful learning experiences.
-          </p>
+      <div className="absolute inset-0 z-30 flex flex-col justify-between px-4 pt-10 pb-16 sm:px-6 sm:pt-12 sm:pb-20 md:pt-16 md:pb-24" style={{ paddingTop: 'calc(2.5rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3.5rem + env(safe-area-inset-bottom, 0px))' }}>
+        <div className="flex-1 flex items-center justify-center overflow-hidden">
+          <div className="w-full max-w-3xl space-y-1.5 rounded-2xl bg-black/25 p-2.5 shadow-lg backdrop-blur-sm sm:space-y-2 sm:rounded-3xl sm:p-3 md:space-y-3 md:p-4 lg:space-y-4 lg:p-6">
+            <h1 className="text-lg font-semibold tracking-tight text-white drop-shadow-md sm:text-2xl md:text-3xl lg:text-5xl leading-tight">
+              Welcome to the Renaissance
+            </h1>
+            <p className="text-xs font-medium text-white/90 sm:text-sm md:text-base leading-snug">
+              Because when teaching is fun, learning becomes unforgettable.
+            </p>
+            <p className="text-[10px] leading-tight text-white/85 sm:text-[11px] md:text-xs">
+              You didn't choose to teach for routine. You chose it to inspire, connect, and share your craft with passion.
+              At Renaissance, we believe teaching should spark joy — not burnout.
+            </p>
+            <p className="text-[10px] leading-tight text-white/80 sm:text-[11px] md:text-xs">
+              We're building a new kind of platform where instructors feel energized, creative, and fully supported to do
+              what they love: create meaningful learning experiences.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-40 px-4 pb-3 sm:px-6 sm:pb-6 md:pb-10 md:px-8">
-        <div className="mx-auto w-full max-w-4xl text-white/80">
-          <button
-            type="button"
-            onClick={handleCtaClick}
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-black/40 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:gap-3 sm:px-6 sm:py-3 sm:text-xs md:px-8 md:py-4 md:text-sm"
-            aria-label="Show me how"
-          >
-            show me how
-            <ArrowDownRight className="size-3.5 transition-transform group-hover:translate-y-1 group-hover:translate-x-1 sm:size-4 md:size-5" />
-          </button>
+        <div className="flex-shrink-0 px-4 sm:px-6 md:px-8">
+          <div className="mx-auto w-full max-w-4xl text-white/80">
+            <button
+              type="button"
+              onClick={handleCtaClick}
+              className="group inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-black/40 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[10px] md:px-6 md:py-3 md:text-xs"
+              aria-label="Show me how"
+            >
+              show me how
+              <ArrowDownRight className="size-3.5 transition-transform group-hover:translate-y-1 group-hover:translate-x-1 sm:size-4 md:size-5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

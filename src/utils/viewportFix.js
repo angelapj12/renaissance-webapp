@@ -18,38 +18,8 @@ export const setViewportHeight = () => {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
   document.documentElement.style.setProperty('--actual-vh', `${actualHeight}px`);
   
-  // Set directly on html/body/root for all devices (especially important for iOS)
-  // This ensures the height is set correctly even if CSS hasn't loaded
-  document.documentElement.style.setProperty('height', `${actualHeight}px`, 'important');
-  document.documentElement.style.setProperty('min-height', `${actualHeight}px`, 'important');
-  document.documentElement.style.setProperty('max-height', `${actualHeight}px`, 'important');
-  
-  document.body.style.setProperty('height', `${actualHeight}px`, 'important');
-  document.body.style.setProperty('min-height', `${actualHeight}px`, 'important');
-  document.body.style.setProperty('max-height', `${actualHeight}px`, 'important');
-  
-  const root = document.getElementById('root');
-  if (root) {
-    root.style.setProperty('height', `${actualHeight}px`, 'important');
-    root.style.setProperty('min-height', `${actualHeight}px`, 'important');
-    root.style.setProperty('max-height', `${actualHeight}px`, 'important');
-  }
-  
-  // Also set on main element if it exists
-  const main = document.querySelector('main.h-screen-safe');
-  if (main) {
-    main.style.setProperty('height', `${actualHeight}px`, 'important');
-    main.style.setProperty('min-height', `${actualHeight}px`, 'important');
-    main.style.setProperty('max-height', `${actualHeight}px`, 'important');
-  }
-  
-  // Set on all section elements
-  const sections = document.querySelectorAll('section[data-chapter-index]');
-  sections.forEach((section) => {
-    section.style.setProperty('height', `${actualHeight}px`, 'important');
-    section.style.setProperty('min-height', `${actualHeight}px`, 'important');
-    section.style.setProperty('max-height', `${actualHeight}px`, 'important');
-  });
+  // Only set CSS custom property - let CSS handle the rest
+  // This avoids conflicts with CSS and allows proper cascading
 };
 
 // Store handlers to prevent duplicate listeners

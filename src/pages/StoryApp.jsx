@@ -70,12 +70,10 @@ const StoryApp = () => {
           bottom: 0,
           width: '100%',
           height: '100%',
-          minHeight: '100%',
           maxWidth: '100vw',
           maxHeight: '100%',
           overflowY: isFormPage ? 'auto' : 'hidden',
           overflowX: 'hidden',
-          WebkitOverflowScrolling: 'touch',
         },
         'aria-hidden': !isActive,
         tabIndex: isActive ? 0 : -1,
@@ -112,10 +110,14 @@ const StoryApp = () => {
 
   return (
     <main 
-      className="relative w-full overflow-hidden bg-[#fefcf3] h-screen-safe"
+      className="relative w-full h-screen-safe overflow-hidden bg-[#fefcf3]"
       style={{
         width: '100vw',
+        height: '100vh',
+        height: '100dvh',
         maxWidth: '100vw',
+        maxHeight: '100vh',
+        maxHeight: '100dvh',
         position: 'fixed',
         top: 0,
         left: 0,

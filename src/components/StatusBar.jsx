@@ -10,7 +10,7 @@ const StatusBar = ({
   const progress = ((clampedIndex + 1) / total) * 100;
 
   return (
-    <header className="pointer-events-none absolute inset-x-0 top-0 z-50 px-4 pt-2 pb-1 sm:px-8 sm:pt-6">
+    <header className="pointer-events-none absolute inset-x-0 top-0 z-50 px-4 pt-1 pb-0.5 sm:px-8 sm:pt-4" style={{ paddingTop: 'calc(0.25rem + env(safe-area-inset-top, 0px))' }}>
       <div className="mx-auto w-full max-w-4xl">
         <div className="text-center text-[9px] font-semibold uppercase tracking-[0.25em] text-white/60 sm:text-xs">
           <span>{labels[clampedIndex]}</span>
