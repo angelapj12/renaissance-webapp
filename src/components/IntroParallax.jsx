@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
-import { motion, useScroll } from 'framer-motion';
+import React, { useCallback, useRef } from 'react';
+import { motion } from 'framer-motion';
 import ParallaxLayer from './ParallaxLayer';
 import StatusBar from './StatusBar';
 
@@ -8,6 +8,7 @@ const layers = [
     src: '/img/parallax/1.1.png',
     speed: 0.02,
     className: 'top-0 left-0 h-full w-full object-cover',
+    style: { top: 0, minHeight: '100dvh' },
     entryOffset: -240,
     entryDelay: 0,
   },
@@ -15,8 +16,8 @@ const layers = [
 
 const chapterLabels = ['Intro', 'Chapter 1', 'Chapter 2', 'Chapter 3', 'Chapter 4', 'Chapter 5', 'Chapter 6', 'Chapter 7'];
 
-const IntroParallax = ({ onPrimaryAction }) => {
-  useScroll();
+const IntroParallax = ({ onPrimaryAction, isActive = true }) => {
+  const containerRef = useRef(null);
 
   const handlePrimaryClick = useCallback(() => {
     if (typeof onPrimaryAction === 'function') {
@@ -32,13 +33,13 @@ const IntroParallax = ({ onPrimaryAction }) => {
 
   return (
     <section 
-      className="relative w-full h-full overflow-hidden bg-[#fefcf3] text-white"
+      ref={containerRef}
+      className="relative w-full min-h-screen bg-[#fefcf3] text-white overflow-x-hidden"
       style={{
         width: '100%',
-        height: '100%',
+        minHeight: '100dvh',
         maxWidth: '100%',
-        maxHeight: '100%',
-        overflow: 'hidden',
+        position: 'relative',
       }}
     >
       <StatusBar labels={chapterLabels} currentIndex={0} />
@@ -52,13 +53,15 @@ const IntroParallax = ({ onPrimaryAction }) => {
           style={layer.style}
           entryOffset={layer.entryOffset}
           entryDelay={layer.entryDelay}
+          active={isActive}
+          containerRef={containerRef}
         />
       ))}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent pointer-events-none" aria-hidden="true" style={{ minHeight: '100dvh' }} />
 
-      <div className="absolute inset-0 z-30 flex flex-col justify-between px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
-        <div className="flex-1 flex items-center justify-center overflow-hidden min-h-0">
+      <div className="relative z-30 flex flex-col min-h-screen px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
+        <div className="flex-1 flex items-center justify-center py-8 sm:py-12 md:py-16">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

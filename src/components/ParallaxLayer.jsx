@@ -14,18 +14,28 @@ const ParallaxLayer = ({
   entryOffsetX = 0,
   entryDelay = 0,
   entryDuration = 1.2,
-  value,
-  range = DEFAULT_RANGE,
   active = true,
+  containerRef,
 }) => {
-  const { scrollY } = useScroll();
-  const motionSource = value ?? scrollY;
-  const [, maxInput] = range;
-
-  const parallaxY = useTransform(motionSource, range, [0, maxInput * speed]);
   const introY = useMotionValue(entryOffset);
   const introX = useMotionValue(entryOffsetX);
-  const combinedY = useTransform([parallaxY, introY], ([parallax, intro]) => parallax + intro);
+  
+  // Use window scroll for parallax effect when section is in view
+  // Track when the section enters and leaves the viewport
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+    layoutEffect: false,
+  });
+  
+  // Transform scroll progress to parallax movement
+  // Background moves slower than scroll (typical parallax effect)
+  // Use a small multiplier so parallax is subtle
+  const parallaxOffset = useTransform(scrollYProgress, [0, 1], [speed * 100, -speed * 100]);
+  const combinedY = useTransform([parallaxOffset, introY], ([parallax, intro]) => {
+    if (!active) return intro; // Only apply parallax when active
+    return parallax + intro;
+  });
 
   useEffect(() => {
     if (!active) return;
@@ -51,15 +61,13 @@ const ParallaxLayer = ({
   const needsCentering = className.includes('left-1/2');
   const combinedX = needsCentering ? '-50%' : introX;
 
-  // Convert 100vh to safe height for iOS (handles both height prop and style.height)
-  const heightValue = height || style.height;
-  const safeHeight = heightValue === '100vh' ? '100dvh' : heightValue;
-  
+  // Use min-height to allow content to expand, but maintain aspect ratio
+  const heightValue = height || style.height || style.minHeight;
   const finalStyle = {
     y: combinedY,
     x: combinedX,
     ...style,
-    ...(safeHeight ? { height: safeHeight } : {}),
+    ...(heightValue ? { minHeight: heightValue === '100vh' ? '100dvh' : heightValue } : {}),
   };
 
   return (

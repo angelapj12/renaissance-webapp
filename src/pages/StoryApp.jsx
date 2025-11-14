@@ -63,17 +63,17 @@ const StoryApp = () => {
           pointerEvents: isActive ? 'auto' : 'none',
           opacity: isActive ? 1 : 0,
           transition: 'opacity 600ms ease',
-          position: 'absolute',
-          top: 0,
+          position: isActive ? 'relative' : 'absolute',
+          top: isActive ? 'auto' : 0,
           left: 0,
           right: 0,
-          bottom: 0,
+          bottom: isActive ? 'auto' : 0,
           width: '100%',
-          height: '100%',
+          minHeight: '100dvh',
           maxWidth: '100vw',
-          maxHeight: '100%',
-          overflowY: isFormPage ? 'auto' : 'hidden',
+          overflowY: 'auto',
           overflowX: 'hidden',
+          WebkitOverflowScrolling: 'touch',
         },
         'aria-hidden': !isActive,
         tabIndex: isActive ? 0 : -1,
@@ -110,19 +110,12 @@ const StoryApp = () => {
 
   return (
     <main 
-      className="relative w-full h-screen-safe overflow-hidden bg-[#fefcf3]"
+      className="relative w-full min-h-screen bg-[#fefcf3]"
       style={{
-        width: '100vw',
-        height: '100vh',
-        height: '100dvh',
+        width: '100%',
+        minHeight: '100dvh',
         maxWidth: '100vw',
-        maxHeight: '100vh',
-        maxHeight: '100dvh',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+        overflowX: 'hidden',
       }}
     >
       {renderedSections}
