@@ -10,6 +10,40 @@
   color: #111827;
 }
 
-body {
+html,
+body,
+#root {
   @apply m-0 p-0 overflow-hidden;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  touch-action: pan-y;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Fix iOS Safari viewport height issue */
+@supports (-webkit-touch-callout: none) {
+  html,
+  body,
+  #root {
+    height: -webkit-fill-available;
+  }
+}
+
+/* Utility class for viewport height that works on iOS */
+.h-screen-safe {
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .h-screen-safe {
+    height: -webkit-fill-available;
+    max-height: -webkit-fill-available;
+  }
 }

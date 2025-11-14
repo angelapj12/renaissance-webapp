@@ -51,16 +51,22 @@ const ParallaxLayer = ({
   const needsCentering = className.includes('left-1/2');
   const combinedX = needsCentering ? '-50%' : introX;
 
+  // Convert 100vh to safe height for iOS (handles both height prop and style.height)
+  const heightValue = height || style.height;
+  const safeHeight = heightValue === '100vh' ? '100dvh' : heightValue;
+  
+  const finalStyle = {
+    y: combinedY,
+    x: combinedX,
+    ...style,
+    ...(safeHeight ? { height: safeHeight } : {}),
+  };
+
   return (
     <motion.img
       src={src}
       alt={alt}
-      style={{ 
-        y: combinedY, 
-        x: combinedX, 
-        ...(height ? { height } : {}), 
-        ...style 
-      }}
+      style={finalStyle}
       initial={{ opacity: 0, scale: 1.02 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: entryDuration, delay: entryDelay, ease: 'easeOut' }}

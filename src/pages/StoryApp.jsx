@@ -93,7 +93,7 @@ const StoryApp = () => {
   }, [currentIndex, formStep, goToChapter, handleFormNext, handleFormBack, totalFormSteps]);
 
   return (
-    <main className="relative h-screen w-full overflow-hidden bg-[#fefcf3]">
+    <main className="relative w-full overflow-hidden bg-[#fefcf3] h-screen-safe">
       {renderedSections}
     </main>
   );

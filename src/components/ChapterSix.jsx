@@ -132,7 +132,7 @@ const ChapterSix = ({ onBack, onNext, isActive = true }) => {
 
   return (
     <section
-      className="relative h-screen overflow-hidden bg-[#fefcf3] text-slate-900"
+      className="relative w-full overflow-hidden bg-[#fefcf3] text-slate-900 h-screen-safe"
       onWheel={handleWheel}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
@@ -151,7 +151,7 @@ const ChapterSix = ({ onBack, onNext, isActive = true }) => {
           className="absolute top-4 left-4 z-50 inline-flex items-center justify-center text-white/80 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
           aria-label="Go back"
         >
-          <ArrowLeft className="size-6 transition-transform hover:-translate-x-1" />
+          <ArrowLeft className="size-4 transition-transform hover:-translate-x-1 sm:size-6" />
         </button>
       )}
 
@@ -173,15 +173,15 @@ const ChapterSix = ({ onBack, onNext, isActive = true }) => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" aria-hidden="true" />
 
-      <div className="relative z-30 flex h-full w-full items-center justify-center px-6 py-24 sm:py-32">
-        <div className="w-full max-w-3xl space-y-5 rounded-3xl bg-black/25 p-6 shadow-lg backdrop-blur-sm sm:p-8">
-          <h1 className="text-4xl font-semibold tracking-tight text-white drop-shadow-md sm:text-5xl md:text-7xl">
+      <div className="relative z-30 flex h-full w-full items-center justify-center px-4 pt-20 pb-20 sm:px-6 sm:pt-24 sm:pb-24 md:py-32">
+        <div className="w-full max-w-3xl space-y-3 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-5 sm:rounded-3xl sm:p-6 md:p-8">
+          <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl lg:text-7xl">
             Be Part of the Renaissance
           </h1>
-          <p className="text-lg font-medium text-white/90 sm:text-xl">
+          <p className="text-base font-medium text-white/90 sm:text-lg md:text-xl">
             Let's reinvent what it means to teach — together.
           </p>
-          <p className="text-sm leading-relaxed text-white/85 sm:text-base">
+          <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
             We're inviting instructors from every discipline — from performance arts to design, movement, music, and more.
           </p>
           <p className="text-sm leading-relaxed text-white/85 sm:text-base">
@@ -193,16 +193,16 @@ const ChapterSix = ({ onBack, onNext, isActive = true }) => {
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-0 right-0 z-40 px-6 sm:px-8">
+      <div className="absolute bottom-0 left-0 right-0 z-40 px-4 pb-3 sm:px-6 sm:pb-6 md:pb-10 md:px-8">
         <div className="mx-auto w-full max-w-4xl text-white/80">
           <button
             type="button"
             onClick={handleCtaClick}
-            className="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-black/40 px-8 py-4 text-xs font-semibold uppercase tracking-[0.3em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:text-sm"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-black/40 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:gap-3 sm:px-6 sm:py-3 sm:text-xs md:px-8 md:py-4 md:text-sm"
             aria-label="Join the movement"
           >
             join the movement
-            <ArrowDownRight className="size-5 transition-transform group-hover:translate-y-1 group-hover:translate-x-1" />
+            <ArrowDownRight className="size-3.5 transition-transform group-hover:translate-y-1 group-hover:translate-x-1 sm:size-4 md:size-5" />
           </button>
         </div>
       </div>

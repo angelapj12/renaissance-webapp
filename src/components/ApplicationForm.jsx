@@ -114,8 +114,8 @@ const ApplicationForm = ({ onBack, onNext, currentStep = 1, totalSteps = 8 }) =>
   const stepContent = getStepContent();
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-[#0a0a0f] text-white">
-      <div className="relative z-20 flex min-h-screen flex-col items-center justify-center px-6 py-12 sm:px-8">
+    <section className="relative w-full overflow-hidden bg-[#0a0a0f] text-white h-screen-safe">
+      <div className="relative z-20 flex h-full flex-col items-center justify-center px-6 py-12 sm:px-8">
         <div className="w-full max-w-2xl space-y-8">
           {/* Header */}
           <motion.div
