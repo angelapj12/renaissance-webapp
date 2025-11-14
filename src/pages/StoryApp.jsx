@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import IntroParallax from '../components/IntroParallax';
 import HomeParallax from '../components/HomeParallax';
 import ChapterTwo from '../components/ChapterTwo';
@@ -7,6 +7,7 @@ import ChapterFour from '../components/ChapterFour';
 import ChapterFive from '../components/ChapterFive';
 import ChapterSix from '../components/ChapterSix';
 import ApplicationForm from '../components/ApplicationForm';
+import { setViewportHeight } from '../utils/viewportFix';
 
 const sections = [IntroParallax, HomeParallax, ChapterTwo, ChapterThree, ChapterFour, ChapterFive, ChapterSix, ApplicationForm];
 
@@ -44,6 +45,15 @@ const StoryApp = () => {
     }
   }, [formStep, goToChapter]);
 
+  // Ensure viewport height is set correctly after render
+  useEffect(() => {
+    setViewportHeight();
+    const timer = setTimeout(() => {
+      setViewportHeight();
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [currentIndex]);
+
   const renderedSections = useMemo(() => {
     return sections.map((Component, index) => {
       const isActive = index === currentIndex;
@@ -54,10 +64,18 @@ const StoryApp = () => {
           opacity: isActive ? 1 : 0,
           transition: 'opacity 600ms ease',
           position: 'absolute',
-          inset: 0,
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           width: '100%',
           height: '100%',
+          minHeight: '100%',
+          maxWidth: '100vw',
+          maxHeight: '100%',
           overflowY: isFormPage ? 'auto' : 'hidden',
+          overflowX: 'hidden',
+          WebkitOverflowScrolling: 'touch',
         },
         'aria-hidden': !isActive,
         tabIndex: isActive ? 0 : -1,
@@ -93,7 +111,18 @@ const StoryApp = () => {
   }, [currentIndex, formStep, goToChapter, handleFormNext, handleFormBack, totalFormSteps]);
 
   return (
-    <main className="relative w-full overflow-hidden bg-[#fefcf3] h-screen-safe">
+    <main 
+      className="relative w-full overflow-hidden bg-[#fefcf3] h-screen-safe"
+      style={{
+        width: '100vw',
+        maxWidth: '100vw',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+    >
       {renderedSections}
     </main>
   );
