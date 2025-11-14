@@ -133,7 +133,14 @@ const ChapterTwo = ({ onBack, onNext, isActive = true }) => {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#06040f] text-white h-screen-safe"
+      className="relative w-full h-full overflow-hidden bg-[#06040f] text-white"
+      style={{
+        width: '100%',
+        height: '100%',
+        maxWidth: '100%',
+        maxHeight: '100%',
+        overflow: 'hidden',
+      }}
       onWheel={handleWheel}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
@@ -174,40 +181,42 @@ const ChapterTwo = ({ onBack, onNext, isActive = true }) => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-transparent" aria-hidden="true" />
 
-      <div className="relative z-30 flex h-full w-full items-center justify-center px-4 pt-20 pb-20 sm:px-6 sm:pt-24 sm:pb-24 md:py-32">
-        <div className="w-full max-w-3xl space-y-3 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-5 sm:rounded-3xl sm:p-6 md:p-8">
-          <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl lg:text-7xl">
-            Imagine a Class That Feels Like a Game — Not a Chore
-          </h1>
-          <p className="text-base font-medium text-white/90 sm:text-lg md:text-xl">
-            Where learning feels immersive, and teaching feels effortless.
-          </p>
-          <div className="space-y-2 text-xs leading-relaxed text-white/85 sm:space-y-3 sm:text-sm md:text-base">
+      <div className="absolute inset-0 z-30 flex flex-col justify-between px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
+        <div className="flex-1 flex items-center justify-center overflow-hidden min-h-0">
+          <div className="w-full max-w-3xl space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8">
+            <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">
+              Imagine a Class That Feels Like a Game — Not a Chore
+            </h1>
+            <p className="text-sm font-medium text-white/90 sm:text-base md:text-lg leading-snug">
+              Where learning feels immersive, and teaching feels effortless.
+            </p>
+            <div className="space-y-2 text-xs leading-relaxed text-white/85 sm:space-y-2.5 sm:text-sm md:text-base">
             <p>Picture this:</p>
-            <ul className="space-y-2 pl-5 text-white/70 marker:text-white/60">
-              <li className="list-disc">Your students check in with one tap.</li>
-              <li className="list-disc">Your classes are personalized, data-backed, and fun.</li>
-              <li className="list-disc">You see live insights, quick feedback, and engagement that grows week after week.</li>
-              <li className="list-disc">Teaching becomes a flow state — you’re not managing, you’re creating.</li>
+            <ul className="space-y-1 pl-4 text-white/70 marker:text-white/60 sm:space-y-1.5 sm:pl-5">
+              <li className="list-disc text-xs sm:text-sm md:text-base">Your students check in with one tap.</li>
+              <li className="list-disc text-xs sm:text-sm md:text-base">Your classes are personalized, data-backed, and fun.</li>
+              <li className="list-disc text-xs sm:text-sm md:text-base">You see live insights, quick feedback, and engagement that grows week after week.</li>
+              <li className="list-disc text-xs sm:text-sm md:text-base">Teaching becomes a flow state — you're not managing, you're creating.</li>
             </ul>
-            <p className="text-white/80">
+            <p className="text-xs text-white/80 sm:text-sm md:text-base">
               That's the Renaissance experience: making learning addictive through creativity, design, and technology.
             </p>
           </div>
+          </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-40 px-4 pb-3 sm:px-6 sm:pb-6 md:pb-10 md:px-8">
-        <div className="mx-auto w-full max-w-4xl text-white/80">
-          <button
-            type="button"
-            onClick={onNext}
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-black/40 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:gap-3 sm:px-6 sm:py-3 sm:text-xs md:px-8 md:py-4 md:text-sm"
-            aria-label="Tell me more"
-          >
-            tell me more
-            <ArrowDownRight className="size-3.5 transition-transform group-hover:translate-y-1 group-hover:translate-x-1 sm:size-4 md:size-5" />
-          </button>
+        <div className="flex-shrink-0 px-4 sm:px-6 md:px-8">
+          <div className="mx-auto w-full max-w-4xl text-white/80">
+            <button
+              type="button"
+              onClick={onNext}
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-black/40 px-4 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:gap-2.5 sm:px-5 sm:py-3.5 sm:text-sm md:px-6 md:py-4 md:text-base"
+              aria-label="Tell me more"
+            >
+              tell me more
+              <ArrowDownRight className="size-4 transition-transform group-hover:translate-y-1 group-hover:translate-x-1 sm:size-5 md:size-6" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

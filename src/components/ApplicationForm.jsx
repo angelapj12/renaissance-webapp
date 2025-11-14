@@ -114,7 +114,16 @@ const ApplicationForm = ({ onBack, onNext, currentStep = 1, totalSteps = 8 }) =>
   const stepContent = getStepContent();
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0a0a0f] text-white h-screen-safe">
+    <section 
+      className="relative w-full h-full overflow-hidden bg-[#0a0a0f] text-white"
+      style={{
+        width: '100%',
+        height: '100%',
+        maxWidth: '100%',
+        maxHeight: '100%',
+        overflow: 'hidden',
+      }}
+    >
       <div className="relative z-20 flex h-full flex-col items-center justify-center px-6 py-12 sm:px-8">
         <div className="w-full max-w-2xl space-y-8">
           {/* Header */}

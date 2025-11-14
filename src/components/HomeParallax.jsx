@@ -185,20 +185,20 @@ const HomeParallax = ({ onBack, onNext, isActive = true }) => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" aria-hidden="true" />
 
-      <div className="absolute inset-0 z-30 flex flex-col justify-between px-4 pt-10 pb-16 sm:px-6 sm:pt-12 sm:pb-20 md:pt-16 md:pb-24" style={{ paddingTop: 'calc(2.5rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3.5rem + env(safe-area-inset-bottom, 0px))' }}>
-        <div className="flex-1 flex items-center justify-center overflow-hidden">
-          <div className="w-full max-w-3xl space-y-1.5 rounded-2xl bg-black/25 p-2.5 shadow-lg backdrop-blur-sm sm:space-y-2 sm:rounded-3xl sm:p-3 md:space-y-3 md:p-4 lg:space-y-4 lg:p-6">
-            <h1 className="text-lg font-semibold tracking-tight text-white drop-shadow-md sm:text-2xl md:text-3xl lg:text-5xl leading-tight">
+      <div className="absolute inset-0 z-30 flex flex-col justify-between px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
+        <div className="flex-1 flex items-center justify-center overflow-hidden min-h-0">
+          <div className="w-full max-w-3xl space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8">
+            <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">
               Welcome to the Renaissance
             </h1>
-            <p className="text-xs font-medium text-white/90 sm:text-sm md:text-base leading-snug">
+            <p className="text-sm font-medium text-white/90 sm:text-base md:text-lg leading-snug">
               Because when teaching is fun, learning becomes unforgettable.
             </p>
-            <p className="text-[10px] leading-tight text-white/85 sm:text-[11px] md:text-xs">
+            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
               You didn't choose to teach for routine. You chose it to inspire, connect, and share your craft with passion.
               At Renaissance, we believe teaching should spark joy — not burnout.
             </p>
-            <p className="text-[10px] leading-tight text-white/80 sm:text-[11px] md:text-xs">
+            <p className="text-xs leading-relaxed text-white/80 sm:text-sm md:text-base">
               We're building a new kind of platform where instructors feel energized, creative, and fully supported to do
               what they love: create meaningful learning experiences.
             </p>
@@ -210,11 +210,11 @@ const HomeParallax = ({ onBack, onNext, isActive = true }) => {
             <button
               type="button"
               onClick={handleCtaClick}
-              className="group inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-black/40 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:gap-2 sm:px-4 sm:py-2.5 sm:text-[10px] md:px-6 md:py-3 md:text-xs"
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-black/40 px-4 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:gap-2.5 sm:px-5 sm:py-3.5 sm:text-sm md:px-6 md:py-4 md:text-base"
               aria-label="Show me how"
             >
               show me how
-              <ArrowDownRight className="size-3.5 transition-transform group-hover:translate-y-1 group-hover:translate-x-1 sm:size-4 md:size-5" />
+              <ArrowDownRight className="size-4 transition-transform group-hover:translate-y-1 group-hover:translate-x-1 sm:size-5 md:size-6" />
             </button>
           </div>
         </div>

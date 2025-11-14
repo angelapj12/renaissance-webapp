@@ -140,7 +140,14 @@ const ChapterFour = ({ onBack, onNext, isActive = true }) => {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#fefcf3] text-slate-900 h-screen-safe"
+      className="relative w-full h-full overflow-hidden bg-[#fefcf3] text-slate-900"
+      style={{
+        width: '100%',
+        height: '100%',
+        maxWidth: '100%',
+        maxHeight: '100%',
+        overflow: 'hidden',
+      }}
       onWheel={handleWheel}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
@@ -181,46 +188,48 @@ const ChapterFour = ({ onBack, onNext, isActive = true }) => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" aria-hidden="true" />
 
-      <div className="relative z-30 flex h-full w-full items-center justify-center px-4 pt-20 pb-20 sm:px-6 sm:pt-24 sm:pb-24 md:py-32">
-        <div className="w-full max-w-3xl space-y-3 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-5 sm:rounded-3xl sm:p-6 md:p-8">
-          <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl lg:text-7xl">
-            Focus on What You Love — We'll Handle the Rest
-          </h1>
-          <p className="text-base font-medium text-white/90 sm:text-lg md:text-xl">
-            This isn't just a platform. It's your creative playground.
-          </p>
-          <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
-            At Renaissance, teaching isn't another job — it's your art form.
-          </p>
-          <p className="text-sm leading-relaxed text-white/85 sm:text-base">
-            We give you freedom, tools, and a creative community to turn your expertise into transformative experiences.
-          </p>
-          <p className="text-sm leading-relaxed text-white/85 sm:text-base">
-            You design your classes, your way.
-          </p>
-          <p className="text-sm leading-relaxed text-white/85 sm:text-base">
-            We handle the rest: marketing, tech, operations, and support.
-          </p>
-          <p className="text-sm leading-relaxed text-white/80 sm:text-base">
-            The result?
-          </p>
-          <p className="text-sm leading-relaxed text-white/80 sm:text-base">
-            Instructors who love teaching again — and students who can't wait for their next class.
-          </p>
+      <div className="absolute inset-0 z-30 flex flex-col justify-between px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
+        <div className="flex-1 flex items-center justify-center overflow-hidden min-h-0">
+          <div className="w-full max-w-3xl space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8">
+            <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">
+              Focus on What You Love — We'll Handle the Rest
+            </h1>
+            <p className="text-sm font-medium text-white/90 sm:text-base md:text-lg leading-snug">
+              This isn't just a platform. It's your creative playground.
+            </p>
+            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
+              At Renaissance, teaching isn't another job — it's your art form.
+            </p>
+            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
+              We give you freedom, tools, and a creative community to turn your expertise into transformative experiences.
+            </p>
+            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
+              You design your classes, your way.
+            </p>
+            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
+              We handle the rest: marketing, tech, operations, and support.
+            </p>
+            <p className="text-xs leading-relaxed text-white/80 sm:text-sm md:text-base">
+              The result?
+            </p>
+            <p className="text-xs leading-relaxed text-white/80 sm:text-sm md:text-base">
+              Instructors who love teaching again — and students who can't wait for their next class.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-40 px-4 pb-3 sm:px-6 sm:pb-6 md:pb-10 md:px-8">
-        <div className="mx-auto w-full max-w-4xl text-white/80">
-          <button
-            type="button"
-            onClick={handleCtaClick}
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-black/40 px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:gap-3 sm:px-6 sm:py-3 sm:text-xs md:px-8 md:py-4 md:text-sm"
-            aria-label="What's it like teaching here"
-          >
-            what's it like teaching here?
-            <ArrowDownRight className="size-3.5 transition-transform group-hover:translate-y-1 group-hover:translate-x-1 sm:size-4 md:size-5" />
-          </button>
+        <div className="flex-shrink-0 px-4 sm:px-6 md:px-8">
+          <div className="mx-auto w-full max-w-4xl text-white/80">
+            <button
+              type="button"
+              onClick={handleCtaClick}
+              className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-black/40 px-4 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur-md transition hover:bg-black/55 sm:gap-2.5 sm:px-5 sm:py-3.5 sm:text-sm md:px-6 md:py-4 md:text-base"
+              aria-label="What's it like teaching here"
+            >
+              what's it like teaching here?
+              <ArrowDownRight className="size-4 transition-transform group-hover:translate-y-1 group-hover:translate-x-1 sm:size-5 md:size-6" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

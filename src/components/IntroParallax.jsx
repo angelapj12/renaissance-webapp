@@ -31,7 +31,16 @@ const IntroParallax = ({ onPrimaryAction }) => {
   }, [onPrimaryAction]);
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#fefcf3] text-white h-screen-safe">
+    <section 
+      className="relative w-full h-full overflow-hidden bg-[#fefcf3] text-white"
+      style={{
+        width: '100%',
+        height: '100%',
+        maxWidth: '100%',
+        maxHeight: '100%',
+        overflow: 'hidden',
+      }}
+    >
       <StatusBar labels={chapterLabels} currentIndex={0} />
 
       {layers.map((layer) => (
@@ -48,35 +57,37 @@ const IntroParallax = ({ onPrimaryAction }) => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent" aria-hidden="true" />
 
-      <div className="relative z-30 flex h-full w-full items-center justify-center px-4 pt-20 pb-20 sm:px-6 sm:pt-24 sm:pb-24 md:py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.3, ease: 'easeOut' }}
-          className="w-full max-w-3xl space-y-3 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-5 sm:rounded-3xl sm:p-6 md:p-8"
-        >
-          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/70 sm:text-xs">✨ Welcome to the Renaissance</p>
-          <h1 className="text-xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-5xl lg:text-7xl">
-            A new era of learning and teaching — where creativity meets technology,
-            and passion turns into impact.
-          </h1>
-          <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
-            This isn't another education platform. This is a movement — a place where teaching feels alive again. Where
-            instructors don't just teach, they create experiences. And where every class becomes a spark that inspires
-            growth — for both students and teachers alike.
-          </p>
-
-          <motion.button
-            type="button"
-            onClick={handlePrimaryClick}
-            initial={{ opacity: 0, y: 20 }}
+      <div className="absolute inset-0 z-30 flex flex-col justify-between px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
+        <div className="flex-1 flex items-center justify-center overflow-hidden min-h-0">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.6, ease: 'easeOut' }}
-            className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg backdrop-blur-md transition hover:bg-white/25 sm:px-6 sm:py-3 sm:text-sm"
+            transition={{ duration: 1.1, delay: 0.3, ease: 'easeOut' }}
+            className="w-full max-w-3xl space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8"
           >
-            🎇 Start the Magic →
-          </motion.button>
-        </motion.div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70 sm:text-sm md:text-base leading-tight">✨ Welcome to the Renaissance</p>
+            <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">
+              A new era of learning and teaching — where creativity meets technology,
+              and passion turns into impact.
+            </h1>
+            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
+              This isn't another education platform. This is a movement — a place where teaching feels alive again. Where
+              instructors don't just teach, they create experiences. And where every class becomes a spark that inspires
+              growth — for both students and teachers alike.
+            </p>
+
+            <motion.button
+              type="button"
+              onClick={handlePrimaryClick}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5, duration: 0.6, ease: 'easeOut' }}
+              className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-lg backdrop-blur-md transition hover:bg-white/25 sm:px-5 sm:py-3.5 sm:text-sm md:px-6 md:py-4 md:text-base"
+            >
+              🎇 Start the Magic →
+            </motion.button>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
