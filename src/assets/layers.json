@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "background": [
+      { "src": "/img/parallax/2.1.png", "speed": 0.02 }
+    ],
+    "midground": [
+      { "src": "/img/parallax/2.2.png", "speed": 0.08 }
+    ],
+    "foreground": [
+      {
+        "src": "/img/parallax/2.3.png",
+        "speed": 0.18,
+        "className": "bottom-0 left-0"
+      }
+    ]
+  },
+  "section1": {
+    "background": [
+      { "src": "/img/parallax/1.1.png", "speed": 0.04 }
+    ],
+    "midground": [],
+    "foreground": []
+  }
+}
