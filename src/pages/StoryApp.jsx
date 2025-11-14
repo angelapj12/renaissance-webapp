@@ -58,6 +58,9 @@ const StoryApp = () => {
     return sections.map((Component, index) => {
       const isActive = index === currentIndex;
       const isFormPage = index === sections.length - 1;
+      
+      // For inactive sections, use absolute positioning with visibility hidden to remove from flow
+      // For active sections, use relative positioning to allow natural flow and scrolling
       const sectionProps = {
         style: {
           pointerEvents: isActive ? 'auto' : 'none',
@@ -71,9 +74,11 @@ const StoryApp = () => {
           width: '100%',
           minHeight: '100dvh',
           maxWidth: '100vw',
-          overflowY: 'auto',
+          // Remove overflow constraints - let the page scroll naturally
+          overflowY: 'visible',
           overflowX: 'hidden',
-          WebkitOverflowScrolling: 'touch',
+          // Ensure active sections can expand beyond viewport
+          height: isActive ? 'auto' : '100dvh',
         },
         'aria-hidden': !isActive,
         tabIndex: isActive ? 0 : -1,
@@ -110,12 +115,13 @@ const StoryApp = () => {
 
   return (
     <main 
-      className="relative w-full min-h-screen bg-[#fefcf3]"
+      className="relative w-full bg-[#fefcf3]"
       style={{
         width: '100%',
-        minHeight: '100dvh',
         maxWidth: '100vw',
         overflowX: 'hidden',
+        overflowY: 'visible',
+        minHeight: '100dvh',
       }}
     >
       {renderedSections}

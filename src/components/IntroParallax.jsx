@@ -60,13 +60,13 @@ const IntroParallax = ({ onPrimaryAction, isActive = true }) => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent pointer-events-none" aria-hidden="true" style={{ minHeight: '100dvh' }} />
 
-      <div className="relative z-30 flex flex-col min-h-screen px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
-        <div className="flex-1 flex items-center justify-center py-8 sm:py-12 md:py-16">
+      <div className="relative z-30 w-full px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
+        <div className="mx-auto w-full max-w-3xl space-y-6 pt-16 pb-8 sm:pt-20 sm:pb-12 md:pt-24 md:pb-16">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.3, ease: 'easeOut' }}
-            className="w-full max-w-3xl space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8"
+            className="space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70 sm:text-sm md:text-base leading-tight">✨ Welcome to the Renaissance</p>
             <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">

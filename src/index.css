@@ -17,28 +17,38 @@
 html {
   @apply m-0 p-0;
   width: 100%;
+  height: auto;
   min-height: 100vh;
   min-height: 100dvh;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  overscroll-behavior-y: none;
+  overscroll-behavior-y: auto;
+  /* Allow natural scrolling */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 body {
   @apply m-0 p-0;
   width: 100%;
+  height: auto;
   min-height: 100vh;
   min-height: 100dvh;
   overflow-x: hidden;
+  /* Allow natural scrolling when content overflows */
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 #root {
   @apply m-0 p-0;
   width: 100%;
+  height: auto;
   min-height: 100vh;
   min-height: 100dvh;
   overflow-x: hidden;
+  /* Allow natural scrolling when content overflows */
+  overflow-y: auto;
 }
 
 /* Fix iOS Safari viewport height issue */
@@ -46,9 +56,9 @@ body {
   html,
   body,
   #root {
-    height: -webkit-fill-available;
+    /* Allow content to expand beyond viewport for scrolling */
+    /* Only set min-height, not max-height or fixed height */
     min-height: -webkit-fill-available;
-    max-height: -webkit-fill-available;
   }
 }
 
