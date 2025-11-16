@@ -69,22 +69,24 @@ const ChapterSix = ({ onBack, onNext, isActive = true }) => {
 
       <div className="relative z-30 w-full px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
         <div className="mx-auto w-full max-w-3xl space-y-6 pt-16 pb-8 sm:pt-20 sm:pb-12 md:pt-24 md:pb-16">
-          <div className="space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8">
-            <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">
+          <div className="space-y-5 rounded-2xl bg-black/25 p-5 shadow-lg backdrop-blur-sm sm:space-y-6 sm:rounded-3xl sm:p-6 md:space-y-7 md:p-8 lg:space-y-8 lg:p-10">
+            <h1 className="text-3xl font-semibold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
               Be Part of the Renaissance
             </h1>
-            <p className="text-sm font-medium text-white/90 sm:text-base md:text-lg leading-snug">
+            <p className="text-base font-medium text-white/90 sm:text-lg md:text-xl leading-snug pt-1">
               Let's reinvent what it means to teach — together.
             </p>
-            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
-              We're inviting instructors from every discipline — from performance arts to design, movement, music, and more.
-            </p>
-            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
-              If you believe that teaching can be joyful, dynamic, and full of possibility, you belong here.
-            </p>
-            <p className="text-xs leading-relaxed text-white/80 sm:text-sm md:text-base">
-              Apply now — or just say hello. Let's explore what we can create together.
-            </p>
+            <div className="space-y-4 pt-2">
+              <p className="text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
+                We're inviting instructors from every discipline — from performance arts to design, movement, music, and more.
+              </p>
+              <p className="text-sm leading-relaxed text-white/85 sm:text-base md:text-lg">
+                If you believe that teaching can be joyful, dynamic, and full of possibility, you belong here.
+              </p>
+              <p className="text-sm leading-relaxed text-white/80 sm:text-base md:text-lg">
+                Apply now — or just say hello. Let's explore what we can create together.
+              </p>
+            </div>
           </div>
         </div>
 

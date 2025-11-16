@@ -79,25 +79,27 @@ const ChapterThree = ({ onBack, onNext, isActive = true }) => {
 
       <div className="relative z-30 w-full px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
         <div className="mx-auto w-full max-w-3xl space-y-6 pt-16 pb-8 sm:pt-20 sm:pb-12 md:pt-24 md:pb-16">
-          <div className="space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8">
-            <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">
+          <div className="space-y-5 rounded-2xl bg-black/25 p-5 shadow-lg backdrop-blur-sm sm:space-y-6 sm:rounded-3xl sm:p-6 md:space-y-7 md:p-8 lg:space-y-8 lg:p-10">
+            <h1 className="text-3xl font-semibold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
               Where Creativity Meets Technology
             </h1>
-            <p className="text-sm font-medium text-white/90 sm:text-base md:text-lg leading-snug">
+            <p className="text-base font-medium text-white/90 sm:text-lg md:text-xl leading-snug pt-1">
               We built the system that lets great teachers focus on what they do best.
             </p>
-            <div className="space-y-1.5 text-xs leading-relaxed text-white/85 sm:space-y-2 sm:text-sm md:text-base">
+            <div className="space-y-3 pt-2 text-sm leading-relaxed text-white/85 sm:space-y-3.5 sm:text-base md:text-lg">
               <p className="font-semibold text-white/95">Smart Tools, Simple Flow: We handle the tech so you can focus on teaching.</p>
               <p className="font-semibold text-white/95">Engaged Students: Every class feels alive — fun, interactive, and addictive.</p>
               <p className="font-semibold text-white/95">Your Brand, Amplified: We promote you — your style, your story, your impact.</p>
               <p className="font-semibold text-white/95">Built for Growth: From marketing to automation, everything works behind the scenes to help you scale effortlessly.</p>
             </div>
-            <p className="text-xs leading-relaxed text-white/80 sm:text-sm md:text-base">
-              We make teaching smoother, smarter, and more inspiring than ever.
-            </p>
-            <p className="text-xs leading-relaxed text-white/80 sm:text-sm md:text-base">
-              We take care of the tech, so you can take care of your students.
-            </p>
+            <div className="space-y-3 pt-2">
+              <p className="text-sm leading-relaxed text-white/80 sm:text-base md:text-lg">
+                We make teaching smoother, smarter, and more inspiring than ever.
+              </p>
+              <p className="text-sm leading-relaxed text-white/80 sm:text-base md:text-lg">
+                We take care of the tech, so you can take care of your students.
+              </p>
+            </div>
           </div>
         </div>
 

@@ -61,6 +61,7 @@ const StoryApp = () => {
       
       // For inactive sections, use absolute positioning with visibility hidden to remove from flow
       // For active sections, use relative positioning to allow natural flow and scrolling
+      // Form page should fill exactly 100dvh, other pages can expand when content overflows
       const sectionProps = {
         style: {
           pointerEvents: isActive ? 'auto' : 'none',
@@ -74,11 +75,11 @@ const StoryApp = () => {
           width: '100%',
           minHeight: '100dvh',
           maxWidth: '100vw',
-          // Remove overflow constraints - let the page scroll naturally
-          overflowY: 'visible',
+          // Form page should be exactly 100dvh, other pages can expand
+          height: isActive && isFormPage ? '100dvh' : (isActive ? 'auto' : '100dvh'),
+          // Form page handles its own scrolling, content pages scroll naturally when content overflows
+          overflowY: isActive && isFormPage ? 'hidden' : 'visible',
           overflowX: 'hidden',
-          // Ensure active sections can expand beyond viewport
-          height: isActive ? 'auto' : '100dvh',
         },
         'aria-hidden': !isActive,
         tabIndex: isActive ? 0 : -1,

@@ -115,16 +115,19 @@ const ApplicationForm = ({ onBack, onNext, currentStep = 1, totalSteps = 8 }) =>
 
   return (
     <section 
-      className="relative w-full h-full overflow-hidden bg-[#0a0a0f] text-white"
+      className="relative w-full bg-[#0a0a0f] text-white overflow-x-hidden"
       style={{
         width: '100%',
-        height: '100%',
+        height: '100dvh',
+        minHeight: '100dvh',
         maxWidth: '100%',
-        maxHeight: '100%',
-        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        overflowY: 'auto',
+        overflowX: 'hidden',
       }}
     >
-      <div className="relative z-20 flex h-full flex-col items-center justify-center px-6 py-12 sm:px-8">
+      <div className="relative z-20 w-full flex-1 flex flex-col items-center justify-center px-6 py-12 sm:px-8" style={{ minHeight: '100%' }}>
         <div className="w-full max-w-2xl space-y-8">
           {/* Header */}
           <motion.div

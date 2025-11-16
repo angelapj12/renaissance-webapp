@@ -85,26 +85,28 @@ const ChapterFive = ({ onBack, onNext, isActive = true }) => {
 
       <div className="relative z-30 w-full px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
         <div className="mx-auto w-full max-w-3xl space-y-6 pt-16 pb-8 sm:pt-20 sm:pb-12 md:pt-24 md:pb-16">
-          <div className="space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8">
-            <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">
+          <div className="space-y-5 rounded-2xl bg-black/25 p-5 shadow-lg backdrop-blur-sm sm:space-y-6 sm:rounded-3xl sm:p-6 md:space-y-7 md:p-8 lg:space-y-8 lg:p-10">
+            <h1 className="text-3xl font-semibold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
               Does This Sound Like You?
             </h1>
-            <p className="text-sm font-medium text-white/90 sm:text-base md:text-lg leading-snug">
+            <p className="text-base font-medium text-white/90 sm:text-lg md:text-xl leading-snug pt-1">
               We're looking for passionate instructors who believe learning should be alive.
             </p>
-            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
-              You might be perfect for Renaissance if you:
-            </p>
-            <ul className="space-y-1 pl-4 text-xs leading-relaxed text-white/85 marker:text-white/60 sm:space-y-1.5 sm:pl-5 sm:text-sm md:text-base">
-              <li className="list-disc">Love teaching and want to keep it exciting</li>
-              <li className="list-disc">Care deeply about your students' growth</li>
-              <li className="list-disc">Have creative ideas and want to bring them to life</li>
-              <li className="list-disc">Believe teaching is an experience — not a job</li>
-              <li className="list-disc">Want to grow your personal brand while doing what you love</li>
-            </ul>
-            <p className="text-xs leading-relaxed text-white/80 sm:text-sm md:text-base">
-              If you're ready to create classes that students remember for life, we'd love to meet you.
-            </p>
+            <div className="space-y-4 pt-2">
+              <p className="text-sm leading-relaxed text-white/85 sm:text-base md:text-lg font-medium">
+                You might be perfect for Renaissance if you:
+              </p>
+              <ul className="space-y-2.5 pl-5 text-sm leading-relaxed text-white/80 marker:text-white/60 sm:space-y-3 sm:pl-6 sm:text-base md:text-lg">
+                <li className="list-disc">Love teaching and want to keep it exciting</li>
+                <li className="list-disc">Care deeply about your students' growth</li>
+                <li className="list-disc">Have creative ideas and want to bring them to life</li>
+                <li className="list-disc">Believe teaching is an experience — not a job</li>
+                <li className="list-disc">Want to grow your personal brand while doing what you love</li>
+              </ul>
+              <p className="text-sm leading-relaxed text-white/80 sm:text-base md:text-lg pt-2">
+                If you're ready to create classes that students remember for life, we'd love to meet you.
+              </p>
+            </div>
           </div>
         </div>
 

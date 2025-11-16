@@ -66,14 +66,14 @@ const IntroParallax = ({ onPrimaryAction, isActive = true }) => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.3, ease: 'easeOut' }}
-            className="space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8"
+            className="space-y-5 rounded-2xl bg-black/25 p-5 shadow-lg backdrop-blur-sm sm:space-y-6 sm:rounded-3xl sm:p-6 md:space-y-7 md:p-8 lg:space-y-8 lg:p-10"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70 sm:text-sm md:text-base leading-tight">✨ Welcome to the Renaissance</p>
-            <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">
+            <h1 className="text-3xl font-semibold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl lg:text-6xl leading-tight pt-1">
               A new era of learning and teaching — where creativity meets technology,
               and passion turns into impact.
             </h1>
-            <p className="text-xs leading-relaxed text-white/85 sm:text-sm md:text-base">
+            <p className="text-sm leading-relaxed text-white/85 sm:text-base md:text-lg pt-2">
               This isn't another education platform. This is a movement — a place where teaching feels alive again. Where
               instructors don't just teach, they create experiences. And where every class becomes a spark that inspires
               growth — for both students and teachers alike.

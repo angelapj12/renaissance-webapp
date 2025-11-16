@@ -70,25 +70,25 @@ const ChapterTwo = ({ onBack, onNext, isActive = true }) => {
 
       <div className="relative z-30 w-full px-4 pt-8 pb-10 sm:px-6 sm:pt-10 sm:pb-12 md:px-6 md:pt-12 md:pb-16" style={{ paddingTop: 'calc(2rem + env(safe-area-inset-top, 0px))', paddingBottom: 'calc(3rem + env(safe-area-inset-bottom, 0px))' }}>
         <div className="mx-auto w-full max-w-3xl space-y-6 pt-16 pb-8 sm:pt-20 sm:pb-12 md:pt-24 md:pb-16">
-          <div className="space-y-2 rounded-2xl bg-black/25 p-4 shadow-lg backdrop-blur-sm sm:space-y-3 sm:rounded-3xl sm:p-5 md:space-y-4 md:p-6 lg:space-y-5 lg:p-8">
-            <h1 className="text-2xl font-semibold tracking-tight text-white drop-shadow-md sm:text-3xl md:text-4xl lg:text-6xl leading-tight">
+          <div className="space-y-5 rounded-2xl bg-black/25 p-5 shadow-lg backdrop-blur-sm sm:space-y-6 sm:rounded-3xl sm:p-6 md:space-y-7 md:p-8 lg:space-y-8 lg:p-10">
+            <h1 className="text-3xl font-semibold tracking-tight text-white drop-shadow-md sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
               Imagine a Class That Feels Like a Game — Not a Chore
             </h1>
-            <p className="text-sm font-medium text-white/90 sm:text-base md:text-lg leading-snug">
+            <p className="text-base font-medium text-white/90 sm:text-lg md:text-xl leading-snug pt-1">
               Where learning feels immersive, and teaching feels effortless.
             </p>
-            <div className="space-y-2 text-xs leading-relaxed text-white/85 sm:space-y-2.5 sm:text-sm md:text-base">
-            <p>Picture this:</p>
-            <ul className="space-y-1 pl-4 text-white/70 marker:text-white/60 sm:space-y-1.5 sm:pl-5">
-              <li className="list-disc text-xs sm:text-sm md:text-base">Your students check in with one tap.</li>
-              <li className="list-disc text-xs sm:text-sm md:text-base">Your classes are personalized, data-backed, and fun.</li>
-              <li className="list-disc text-xs sm:text-sm md:text-base">You see live insights, quick feedback, and engagement that grows week after week.</li>
-              <li className="list-disc text-xs sm:text-sm md:text-base">Teaching becomes a flow state — you're not managing, you're creating.</li>
-            </ul>
-            <p className="text-xs text-white/80 sm:text-sm md:text-base">
-              That's the Renaissance experience: making learning addictive through creativity, design, and technology.
-            </p>
-          </div>
+            <div className="space-y-4 pt-2 text-sm leading-relaxed text-white/85 sm:space-y-5 sm:text-base md:text-lg">
+              <p className="font-medium text-white/90">Picture this:</p>
+              <ul className="space-y-2.5 pl-5 text-white/80 marker:text-white/60 sm:space-y-3 sm:pl-6">
+                <li className="list-disc">Your students check in with one tap.</li>
+                <li className="list-disc">Your classes are personalized, data-backed, and fun.</li>
+                <li className="list-disc">You see live insights, quick feedback, and engagement that grows week after week.</li>
+                <li className="list-disc">Teaching becomes a flow state — you're not managing, you're creating.</li>
+              </ul>
+              <p className="text-white/80 pt-1">
+                That's the Renaissance experience: making learning addictive through creativity, design, and technology.
+              </p>
+            </div>
           </div>
         </div>
 
