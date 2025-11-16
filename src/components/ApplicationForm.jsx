@@ -15,6 +15,9 @@ const ApplicationForm = ({ onBack, onNext, currentStep = 1, totalSteps = 8 }) =>
   });
 
   const progress = (currentStep / totalSteps) * 100;
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [submitOk, setSubmitOk] = useState(false);
 
   const handleNext = () => {
     if (typeof onNext === 'function') {
@@ -22,10 +25,42 @@ const ApplicationForm = ({ onBack, onNext, currentStep = 1, totalSteps = 8 }) =>
     }
   };
 
-  const handleSubmit = () => {
-    // Handle form submission here
-    // TODO: Send formData to your backend/API
-    alert('Application submitted! Thank you for applying.');
+  const handleSubmit = async () => {
+    if (submitting) return;
+    setSubmitting(true);
+    setSubmitError('');
+    setSubmitOk(false);
+    try {
+      const apiBase =
+        (typeof import.meta !== 'undefined' &&
+          import.meta.env &&
+          import.meta.env.VITE_API_BASE &&
+          String(import.meta.env.VITE_API_BASE)) ||
+        '';
+      const base = apiBase.endsWith('/') ? apiBase.slice(0, -1) : apiBase;
+      const endpoint = `${base}/api/apply`;
+      const payload = {
+        ...formData,
+        referrer: typeof document !== 'undefined' ? document.referrer : '',
+        user_agent: typeof navigator !== 'undefined' ? navigator.userAgent : '',
+      };
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data?.error || 'Failed to submit');
+      }
+      setSubmitOk(true);
+      // Optionally reset the form
+      // setFormData({ name:'', email:'', phone:'', subject:'', experience:'', philosophy:'', portfolio:'', social:'' });
+    } catch (err) {
+      setSubmitError(err?.message || 'Something went wrong');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleInputChange = (field, value) => {
@@ -209,9 +244,10 @@ const ApplicationForm = ({ onBack, onNext, currentStep = 1, totalSteps = 8 }) =>
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-red-500 to-pink-500 px-8 py-3 text-sm font-semibold text-white transition hover:from-red-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500/50"
+                disabled={submitting}
+                className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-red-500 to-pink-500 px-8 py-3 text-sm font-semibold text-white transition hover:from-red-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-pink-500/50 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit Application
+                {submitting ? 'Submitting…' : 'Submit Application'}
               </button>
             ) : (
               <button
@@ -224,6 +260,14 @@ const ApplicationForm = ({ onBack, onNext, currentStep = 1, totalSteps = 8 }) =>
               </button>
             )}
           </motion.div>
+
+          {/* Submission status */}
+          {(submitError || submitOk) && (
+            <div className="text-center pt-3">
+              {submitOk && <p className="text-green-400 text-sm">Thanks! Your application was submitted.</p>}
+              {submitError && <p className="text-rose-400 text-sm">{submitError}</p>}
+            </div>
+          )}
         </div>
       </div>
     </section>
